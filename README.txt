@@ -1,0 +1,1 @@
+Ersetze server.js im Repo und füge history.json hinzu. Render deployed automatisch neu.
