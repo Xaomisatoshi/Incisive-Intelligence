@@ -5,8 +5,7 @@
   "scripts": {
     "test": "vitest run",
     "mcp:dev": "tsx mcp-server/src/server.ts",
-    "mcp:start": "tsx mcp-server/src/server.ts",
-    "start": "tsx mcp-server/src/server.ts"
+
   },
   "dependencies": {
     "openai": "^4.99.0",
