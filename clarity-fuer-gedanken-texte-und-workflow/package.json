@@ -1,0 +1,14 @@
+{
+  "name": "clarity-fuer-gedanken-texte-und-workflow",
+  "version": "0.2.0",
+  "private": true,
+  "scripts": {
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "@types/node": "^22.15.17",
+    "typescript": "^5.8.3",
+    "vitest": "^2.1.8"
+  }
+}
