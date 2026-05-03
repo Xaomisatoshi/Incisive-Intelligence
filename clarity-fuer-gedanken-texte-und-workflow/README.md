@@ -5,7 +5,7 @@ Repo-seitiger MVP-Release-Stand für die **GEO / Digital Dreams / Clarity ChatGP
 > Dieses Repository ist **keine** lokale Webapp (kein Next.js, kein React, keine mobile App).
 
 ## Was die App macht
-Die App stellt das zentrale MCP-Tool **`geo_analyze_text`** bereit.
+Die App nutzt die vorhandene App-/Tool-Struktur (Apps SDK + MCP + Domain) und stellt das zentrale MCP-Tool **`geo_analyze_text`** bereit.
 
 Eingabe:
 - `text` (erforderlich)
