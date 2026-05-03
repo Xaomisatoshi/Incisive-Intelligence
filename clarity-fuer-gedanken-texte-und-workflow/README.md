@@ -1,36 +1,21 @@
 # Clarity für Gedanken, Texte und Workflow
 
-Lokale Next.js-MVP-App für den internen Agenten **CHILL-SENSEI — Clarity-Architekt für Gedanken, Texte & Workflows**.
+Dieses Projekt ist **keine lokale Next.js-/React-Webapp mehr**.
 
-## Features
-- Chat-Interface auf der Startseite
-- API-Route (`/api/chat`) mit OpenAI Responses API
-- Modulare Agentenkonfiguration (`src/agent`)
-- Ausgelagerte Antwortregeln und Workflow-Modi
-- Platzhalter-Ordner für Wissensdateien (`/knowledge`)
-- Beispiel-Tests für Prompt-Verhalten
+## Ziel
+Migration zu einer ChatGPT-App-Architektur mit:
+- **Apps SDK Layer** (Vorbereitung für ChatGPT-Integration)
+- **MCP Server Layer** (Tools und Schemas)
+- **Domain Layer** (fachliche GEO-/Agentenlogik)
 
-## Setup
-1. Abhängigkeiten installieren:
-   ```bash
-   npm install
-   ```
-2. Umgebungsvariablen setzen:
-   ```bash
-   cp .env.example .env.local
-   ```
-   Dann `OPENAI_API_KEY` in `.env.local` eintragen.
-3. Dev-Server starten:
-   ```bash
-   npm run dev
-   ```
-4. App öffnen: `http://localhost:3000`
+## Aktueller Fokus (Arbeitspaket 1)
+- Domain-Grundfunktion `geo_analyze_text`
+- MCP-Server-Grundstruktur mit Tool- und Schema-Datei
+- Apps-SDK-Vorbereitungsordner
 
-## Tests
-```bash
-npm test
-```
+## Legacy
+Alte Referenzartefakte wurden nach `../legacy/` verschoben:
+- `legacy/server.js`
+- `legacy/package.txt`
 
-## Hinweise
-- Standardmodell ist `gpt-4.1-mini` (überschreibbar via `OPENAI_MODEL`).
-- Antworten werden serverseitig über die Responses API erzeugt.
+Diese Dateien dienen nur noch als historische Referenz und sind nicht Teil der Zielarchitektur.
