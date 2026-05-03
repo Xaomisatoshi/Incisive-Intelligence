@@ -13,6 +13,18 @@ Migration zu einer ChatGPT-App-Architektur mit:
 - MCP-Server-Grundstruktur mit Tool- und Schema-Datei
 - Apps-SDK-Vorbereitungsordner
 
+## MCP-Server lokal starten
+Der MCP-Server ist lokal per STDIO startbar und registriert das Tool `geo_analyze_text`.
+
+1. Abhängigkeiten installieren:
+   - `npm install`
+2. Entwicklungsstart:
+   - `npm run mcp:dev`
+3. Start (alias):
+   - `npm run mcp:start`
+
+Hinweis: Es gibt bewusst keine lokale Webapp/UI. Die spätere App-Ausführung erfolgt innerhalb von ChatGPT über **Apps SDK + MCP**.
+
 ## Legacy
 Alte Referenzartefakte wurden nach `../legacy/` verschoben:
 - `legacy/server.js`
