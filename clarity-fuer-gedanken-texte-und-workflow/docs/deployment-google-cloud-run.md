@@ -15,7 +15,7 @@ Die App als öffentlicher HTTP-Service bereitstellen, damit ChatGPT den MCP-Endp
 4. Repository verbinden und Branch auswählen.
 5. **Source folder** auf `clarity-fuer-gedanken-texte-und-workflow` setzen.
 6. Build/Start:
-   - Dockerfile-Pfad: `/clarity-fuer-gedanken-texte-und-workflow/Dockerfile`
+
    - Startbefehl: `npm run start`
 7. Port-Hinweis:
    - Cloud Run setzt `PORT` automatisch.
