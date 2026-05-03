@@ -1,6 +1,7 @@
 # Clarity für Gedanken, Texte und Workflow
 
 Repo-seitiger MVP-Release-Stand für die **GEO / Digital Dreams / Clarity ChatGPT-App** auf Basis von **Apps SDK + MCP**.
+Stand: Dieser Branch bildet den finalen MVP-Repository-Stand (ohne lokale Webapp/UI).
 
 > Dieses Repository ist **keine** lokale Webapp (kein Next.js, kein React, keine mobile App).
 
