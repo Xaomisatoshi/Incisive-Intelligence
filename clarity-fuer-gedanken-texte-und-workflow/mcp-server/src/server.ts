@@ -1,12 +1,4 @@
-import { Server } from "@modelcontextprotocol/sdk/server/index.js";
-import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js";
-import {
-  CallToolRequestSchema,
-  ListToolsRequestSchema
-} from "@modelcontextprotocol/sdk/types.js";
-import { geoAnalyzeTextTool } from "./tools/geo_analyze_text";
 
-export function createMcpServer(): Server {
   const server = new Server(
     {
       name: "clarity-mcp-server",
@@ -20,16 +12,7 @@ export function createMcpServer(): Server {
   );
 
   server.setRequestHandler(ListToolsRequestSchema, async () => ({
-    tools: [
-      {
-        name: geoAnalyzeTextTool.name,
-        description: geoAnalyzeTextTool.description,
-        inputSchema: geoAnalyzeTextTool.inputSchema
-      }
-    ]
-  }));
 
-  server.setRequestHandler(CallToolRequestSchema, async (request) => {
     if (request.params.name !== geoAnalyzeTextTool.name) {
       throw new Error(`Unknown tool: ${request.params.name}`);
     }
@@ -38,6 +21,7 @@ export function createMcpServer(): Server {
     const result = await geoAnalyzeTextTool.handler(input);
 
     return {
+
       content: [
         {
           type: "text",
@@ -46,16 +30,7 @@ export function createMcpServer(): Server {
       ],
       structuredContent: result
     };
-  });
 
-  return server;
-}
-
-export async function main(): Promise<void> {
-  const server = createMcpServer();
-  const transport = new StdioServerTransport();
-
-  await server.connect(transport);
 }
 
 if (import.meta.url === `file://${process.argv[1]}`) {
