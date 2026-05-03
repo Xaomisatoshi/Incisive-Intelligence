@@ -1,0 +1,15 @@
+{
+  "name": "clarity-geo-app",
+  "version": "0.1.0",
+  "description": "ChatGPT App Basis für GEO-Textanalyse mit geo_analyze_text über MCP.",
+  "mcp": {
+    "command": "npm",
+    "args": ["run", "mcp:start"],
+    "toolNames": ["geo_analyze_text"]
+  },
+  "domain": {
+    "project": "Digital Dreams",
+    "product": "Clarity",
+    "focus": "GEO-Analyse"
+  }
+}
