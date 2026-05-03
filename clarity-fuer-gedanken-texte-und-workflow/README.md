@@ -1,34 +1,38 @@
 # Clarity für Gedanken, Texte und Workflow
 
-> **Korrekturstatus (2026-05-03):** Dieses Verzeichnis ist **keine** lokale Standalone-Next.js-Webapp.
-> Zielarchitektur ist eine **ChatGPT-App mit OpenAI Apps SDK + MCP-Server**.
+> **Korrekturstatus (2026-05-03):** Dieses Projekt ist **keine lokale Standalone-Next.js-Webapp**.
+> Ziel ist eine **ChatGPT-App mit OpenAI Apps SDK und MCP-Server-Struktur**.
 
 ## Zielarchitektur
 
-Dieses Projekt stellt die Grundlage für eine ChatGPT-App bereit:
+Das Repository ist auf drei Ebenen ausgerichtet:
 
-- **Apps SDK Layer**: Beschreibung der App-Integration für ChatGPT.
-- **MCP Server Layer**: Tool-Server mit klaren Tool-Schnittstellen.
-- **Domain Layer**: Agentenregeln und fachliche Wissensstruktur (z. B. GEO-Analyse-Tools).
+1. **Apps SDK Layer** (`apps/sdk/`): App-Definition und Bindings für ChatGPT.
+2. **MCP Server Layer** (`mcp/server/`): Tool-Server und Tool-Registrierung.
+3. **Domain Layer** (`src/agent/`): Agentenlogik (Prompt, Regeln, Workflow-Modi, GEO-Bezug).
 
-Keine Annahmen zu Vercel, App Store, Android oder iOS.
+Es gibt **keine** Annahme zu Vercel, Android, iOS oder App-Store-Distribution.
 
-## Was wurde entfernt (Korrektur)
+## Merge-Konflikt-Entscheidungen (konsolidiert)
 
-Die zuvor angelegte Next.js-Webapp-Struktur wurde entfernt, weil sie die Zielarchitektur verfälscht hat:
+Bei konfliktträchtigen Dateien wurde konsequent die Architekturvariante **Apps SDK + MCP** priorisiert:
 
-- `src/app/*` (Webseiten-Routing, CSS, API-Route für lokale Webapp)
-- `src/components/*` (Browser-Chat-UI)
+- `.env.example`: auf Apps-SDK/MCP-Betrieb vorbereitet.
+- `package.json`: nur TypeScript + Vitest Tooling; **keine** React/Next-Abhängigkeiten.
+- `tsconfig.json`: neutrales TypeScript-Setup für Agenten-/Server-Code.
+- `README.md`: eindeutige Abgrenzung gegen lokale Webapp.
+
+## Was explizit entfernt bleibt
+
+Folgende Webapp-Artefakte sind **nicht Teil** dieses Projekts:
+
+- `next`, `react`, `react-dom`
 - `next.config.ts`, `next-env.d.ts`
-- Next.js/React-Abhängigkeiten
+- `src/app/*`
+- `src/components/*`
+- lokale Webapp-API-Routen
 
-## Was bleibt bewusst erhalten
-
-- `src/agent/*`: Systemprompt, Antwortregeln und Workflow-Modi als fachliches Kernmodul.
-- `knowledge/README.md`: Platzhalter für späteres Domänenwissen.
-- `AGENTS.md`: Projektrichtlinien.
-
-## Neue Struktur (Apps SDK + MCP-orientiert)
+## Projektstruktur
 
 ```text
 clarity-fuer-gedanken-texte-und-workflow
@@ -56,15 +60,12 @@ clarity-fuer-gedanken-texte-und-workflow
   .env.example
 ```
 
-## Setup
+## Lokale Checks
 
 ```bash
 npm install
+npm run typecheck
 npm test
 ```
 
-## Nächster Architektur-Schritt (bewusst noch ohne Feature-Ausbau)
-
-1. Apps SDK App-Definition unter `apps/sdk/` ergänzen.
-2. MCP-Server-Basis unter `mcp/server/` implementieren.
-3. Erste GEO-Analyse-Tools über MCP strukturieren.
+> Hinweis: In eingeschränkten CI/Sandbox-Umgebungen kann `npm install` durch Registry-Policies fehlschlagen.
