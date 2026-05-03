@@ -22,15 +22,6 @@
 
     return {
 
-      content: [
-        {
-          type: "text",
-          text: JSON.stringify(result)
-        }
-      ],
-      structuredContent: result
-    };
-
 }
 
 if (import.meta.url === `file://${process.argv[1]}`) {
