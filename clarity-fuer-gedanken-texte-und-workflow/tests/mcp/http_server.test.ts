@@ -13,6 +13,21 @@ afterEach(async () => {
 });
 
 describe("MCP HTTP server", () => {
+
+  it("liefert root-status ohne Placeholder", async () => {
+    server = createHttpServer();
+    await new Promise<void>((resolve) => server?.listen(0, resolve));
+
+    const address = server.address();
+    if (!address || typeof address === "string") throw new Error("No address");
+
+    const response = await fetch(`http://127.0.0.1:${address.port}/`);
+    const body = await response.json();
+
+    expect(response.status).toBe(200);
+    expect(body.service).toBe("geo-clarity-app");
+    expect(body.mcpEndpoint).toBe("/mcp");
+  });
   it("liefert /health", async () => {
     server = createHttpServer();
     await new Promise<void>((resolve) => server?.listen(0, resolve));

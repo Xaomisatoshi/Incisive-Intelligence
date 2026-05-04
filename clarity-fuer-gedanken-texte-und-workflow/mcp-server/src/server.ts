@@ -94,6 +94,12 @@ async function readJsonBody(req: IncomingMessage): Promise<JsonRpcRequest> {
 
 export function createHttpServer() {
   return createServer(async (req: IncomingMessage, res: ServerResponse) => {
+    if (req.url === "/" && req.method === "GET") {
+      res.writeHead(200, { "content-type": "application/json" });
+      res.end(JSON.stringify({ service: "geo-clarity-app", status: "running", mcpEndpoint: "/mcp" }));
+      return;
+    }
+
     if (req.url === "/health" && req.method === "GET") {
       res.writeHead(200, { "content-type": "application/json" });
       res.end(JSON.stringify({ status: "ok" }));
