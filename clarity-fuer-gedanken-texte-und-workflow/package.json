@@ -3,14 +3,19 @@
   "version": "0.2.0",
   "private": true,
   "scripts": {
-    "test": "vitest run"
+    "test": "vitest run",
+    "mcp:dev": "tsx mcp-server/src/server.ts",
+    "mcp:start": "tsx mcp-server/src/server.ts",
+    "start": "tsx mcp-server/src/server.ts"
   },
   "dependencies": {
-    "openai": "^4.99.0"
+    "openai": "^4.99.0",
+    "@modelcontextprotocol/sdk": "^1.12.0"
   },
   "devDependencies": {
     "@types/node": "^22.15.17",
     "typescript": "^5.8.3",
-    "vitest": "^2.1.8"
+    "vitest": "^2.1.8",
+    "tsx": "^4.19.2"
   }
 }
